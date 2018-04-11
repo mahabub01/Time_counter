@@ -1,4 +1,7 @@
 <?php
+header('Access-Control-Allow-Origin: *'); 
+?>
+<?php
 session_start();
 
 
@@ -9,7 +12,12 @@ $timefirst = strtotime($from_time1);
 $timesecond = strtotime($to_time1);
 
 $difference = $timesecond - $timefirst;
-echo gmdate("H:i:s", $difference);
+if($timefirst < $timesecond){
+	echo gmdate("H:i:s", $difference);
+}else{
+	echo "yes";
+}
+
 
 
 
